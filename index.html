@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CWIFS Test</title>
+    <script src="cwifs.js"></script>
+    <style>
+        *{
+            font-family: sans-serif;
+            background: white;
+            color:black;
+        }
+        textarea,input,button{
+            border: 3px solid slategray;
+            border-radius: 3px;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="cwifs.setup()">
+    <h1>CustomWebInterfaceFileSystem Test</h1>
+    <h1>File Write</h1>
+    Name : <input type="text" id="fname"><br>
+    Contents : <br>
+    <textarea id="fcontent" name="" id="" cols="30" rows="10"></textarea>
+    <br><button onclick="cwifs.file.write(document.getElementById('fname').value,document.getElementById('fcontent').value)">Write</button><br>
+    <h1>File Read</h1>
+    Name : <input type="text" id="frname"><br>
+    Contents : <br>
+    <code id="frcontent"></code><br>
+    <button onclick="document.getElementById('frcontent').innerText=cwifs.file.read(document.getElementById('frname').value)">Read</button><br>
+    <h1>FS Check</h1>
+    <i>Check File: .fssignature</i><br>
+    <button onclick="alert(cwifs.check())">Check</button><br>
+    <h1>Delete File</h1>
+    Name : <input type="text" id="frrname"><br>
+    <button onclick="cwifs.file.delete(document.getElementById('frrname').value)">Delete</button><br>
+</body>
+</html>
