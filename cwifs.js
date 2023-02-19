@@ -5,16 +5,6 @@ cwifs={
     },
     file:{
         write:(name,contents)=>{
-            name=name.split("/")
-            if(name.length>2){
-                throw Error("Well, only ONE parent folder is supported for each file.")
-            }else if(name.length==1){
-                name=name[0]
-                parentF="."
-            }else{
-                name=name[1]
-                parentF=name[0]
-            }
             usectors=[]
             ssector=cwifs.map.lusables
             sector=cwifs.map.lusables
@@ -26,48 +16,24 @@ cwifs={
                 range:`${ssector.toString()}-${esector.toString()}`.toString(),
                 start:ssector,
                 end:esector,
-                used:usectors,
-                parent:parentF
+                used:usectors
             }
             cwifs.map.files.push(file)
         },
         read:(name)=>{
-            name=name.split("/")
-            if(name.length>2){
-                throw Error("Well, only ONE parent folder is supported for each file.")
-            }else if(name.length==1){
-                name=name[0]
-                parentF="."
-            }else{
-                name=name[1]
-                parentF=name[0]
-            }
             output=""
             for(file in cwifs.map.files){
                 if(cwifs.map.files[file].name==name){
-                    if(cwifs.map.files[file].parent==parentF){
                         for(sector in cwifs.map.files[file].used){
                             output+=cwifs.device.string.read(sector)
                         }
-                    }
                 }
             }
             return output
         },
         delete:(name)=>{
-            name=name.split("/")
-            if(name.length>2){
-                throw Error("Well, only ONE parent folder is supported for each file.")
-            }else if(name.length==1){
-                name=name[0]
-                parentF="."
-            }else{
-                name=name[1]
-                parentF=name[0]
-            }
             for(file in cwifs.map.files){
                 if(cwifs.map.files[file].name==name){
-                    if(cwifs.map.files[file].parent==parentF){
                         uusec=cwifs.map.files[file].used
                         cwifs.map.files.pop(file)
                         for(fd in uusec){
@@ -75,7 +41,6 @@ cwifs={
                             cwifs.device.fs[xxlocation.GB][xxlocation.MB][xxlocation.KB][xxlocation.B]=cwifs.types.__byte()
                         }
                         cwifs.map.lusables=uusec[0]
-                    }
                 }
             }
         }
