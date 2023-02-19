@@ -68,7 +68,13 @@ cwifs={
             for(file in cwifs.map.files){
                 if(cwifs.map.files[file].name==name){
                     if(cwifs.map.files[file].parent==parentF){
+                        uusec=cwifs.map.files[file].used
                         cwifs.map.files.pop(file)
+                        for(fd in uusec){
+                            xxlocation=cwifs.device.locate(uusec[fd]*7)
+                            cwifs.device.fs[xxlocation.GB][xxlocation.MB][xxlocation.KB][xxlocation.B]=cwifs.types.__byte()
+                        }
+                        cwifs.map.lusables=uusec[0]
                     }
                 }
             }
