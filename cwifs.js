@@ -25,7 +25,7 @@ cwifs={
             for(file in cwifs.map.files){
                 if(cwifs.map.files[file].name==name){
                         for(sector in cwifs.map.files[file].used){
-                            output+=cwifs.device.string.read(sector)
+                            output+=cwifs.device.string.read(cwifs.map.files[file].used[sector])
                         }
                 }
             }
