@@ -1,7 +1,7 @@
 cwifs={
     map:{
         files:[],
-        lusables:Number()
+        lusables:0
     },
     file:{
         write:(name,contents)=>{
