@@ -40,7 +40,6 @@ cwifs={
                             xxlocation=cwifs.device.locate(uusec[fd]*7)
                             cwifs.device.fs[xxlocation.GB][xxlocation.MB][xxlocation.KB][xxlocation.B]=cwifs.types.__byte()
                         }
-                        cwifs.map.lusables=uusec[0]
                 }
             }
         }
