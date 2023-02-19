@@ -121,19 +121,5 @@ cwifs={
     },
     setup:(()=>{
         cwifs.device.fs=cwifs.types.gigabyte()
-        cwifs.file.write(".fssignature","CWIFS-FS "+navigator.userAgent)
-        if(cwifs.check()){
-            return true
-        }else{
-            cwifs.device.fs=NaN
-            throw Error("What? Just changed the useragent! I am not dumb. CWIFS SETUP ABORTED.")
-        }
-    }),
-    check:(()=>{
-        if(cwifs.file.read(".fssignature")=="CWIFS-FS "+navigator.userAgent){
-            return true
-        }else{
-            return false
-        }
     })
 }
