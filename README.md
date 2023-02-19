@@ -5,5 +5,3 @@ Sorry for badly-designed test page.
 https://mcode11.github.io/cwifs/
 # Add to your page
 `<script src="https://mcode11.github.io/cwifs/cwifs.js"></script>`
-# Wiki
-This repository also has a "Wiki" section.
