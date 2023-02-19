@@ -59,8 +59,11 @@ cwifs={
         __megabyte:()=>{
             return Array(1000).fill(cwifs.types.__kilobyte())
         },
-        gigabyte:()=>{
+        __gigabyte:()=>{
             return Array(1000).fill(cwifs.types.__megabyte())
+        },
+        terabyte:()=>{
+            return Array(1000).fill(cwifs.types.__gigabyte())
         }
     },
     device:{
@@ -91,6 +94,6 @@ cwifs={
         }
     },
     setup:(()=>{
-        cwifs.device.fs=cwifs.types.gigabyte()
+        cwifs.device.fs=cwifs.types.terabyte()
     })
 }
