@@ -33,9 +33,6 @@
     Contents : <br>
     <code id="frcontent"></code><br>
     <button onclick="document.getElementById('frcontent').innerText=cwifs.file.read(document.getElementById('frname').value)">Read</button><br>
-    <h1>FS Check</h1>
-    <i>Check File: .fssignature</i><br>
-    <button onclick="alert(cwifs.check())">Check</button><br>
     <h1>Delete File</h1>
     Name : <input type="text" id="frrname"><br>
     <button onclick="cwifs.file.delete(document.getElementById('frrname').value)">Delete</button><br>
